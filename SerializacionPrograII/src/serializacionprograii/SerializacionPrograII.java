@@ -5,10 +5,10 @@
  */
 package serializacionprograii;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.logging.Level;
@@ -28,9 +28,10 @@ public class SerializacionPrograII {
             //PREPARANDO ARCHIVO BINARIO Y CONECTANDO AL PROGRAMA JAVA
             ObjectOutputStream objeto_escribir = new ObjectOutputStream(new FileOutputStream("ARCHIVO.BIN"));
             objeto_escribir.writeObject(new Alumno(1234, "Ingenieria en Sistemas", 2018, 99.87f));
+            objeto_escribir.writeObject(new Alumno(4351,"Medicina",2016,96.5f));
             objeto_escribir.close();
             //Creando la infraestructura para abrir el archivo binario y leer los datos en el
-            ObjectInputStream objeto_leer = new ObjectInputStream(FileInputStream("ARCHIVO.BIN"));
+            ObjectInputStream objeto_leer = new ObjectInputStream(new FileInputStream("ARCHIVO.BIN"));
             Alumno mi_alumno= (Alumno) objeto_leer.readObject();
             objeto_leer.close();
             
@@ -46,8 +47,5 @@ public class SerializacionPrograII {
         
     }
 
-    private static InputStream FileInputStream(String archivobin) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }
