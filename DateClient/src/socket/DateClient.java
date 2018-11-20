@@ -2,9 +2,12 @@
 package socket;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.InputStreamReader;
-import java.net.Socket;
+import java.io.PrintWriter;
+import java.net.*;
 
 import javax.swing.JOptionPane;
 
@@ -19,6 +22,7 @@ public class DateClient {
         String answer =input.readLine();
         JOptionPane.showMessageDialog(null, answer);
         System.exit(0);
-        
+        PrintWriter pw = new PrintWriter(s.getOutputStream(),true);
+        pw.println("Jorge Coello"); 
     }   
 }
